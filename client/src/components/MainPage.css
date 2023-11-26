@@ -3,7 +3,7 @@
 }
 .main-banner {
     /* background-image: url(../images/banner-bg.jpg); */
-    background-image: url(../../Books-Banner.jpg);
+    background-image: url(/public/Books-Banner.jpg);
     background-position: center center;
     background-size: cover;
     min-height: 380px;
