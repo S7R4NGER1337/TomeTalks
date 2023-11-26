@@ -8,7 +8,7 @@ export default function Header() {
           <div className="col-12">
             <nav className="main-nav">
               <a href="index.html" className="logo">
-                <img src="assets/images/logo.png" alt="" />
+                <img src="/Screenshot_1-removebg-preview.png" alt="" />
               </a>
               <div className="search-input">
                 <form id="search" action="#">
