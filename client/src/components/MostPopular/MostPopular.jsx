@@ -1,4 +1,5 @@
-import './MostPopular.css'
+import MostPopularBook from "../MostPopularBook/MostPopularBook";
+import "./MostPopular.css";
 export default function MostPopular() {
   return (
     <div className="most-popular">
@@ -11,80 +12,19 @@ export default function MostPopular() {
           </div>
           <div className="row">
             <div className="wrapRows">
-              <div className="firstTwo">
-                <div className="rowItem">
-                  <div className="item">
-                    <img src="/Silver grains_Pori.jpg" className = 'testSnimka'alt="" />
-                    <h4 className='centerItInBox'>
-                      Fortnite
-                      <br />
-                      <span>Sandbox</span>
-                    </h4>
-                    <ul className='centerItInBox'>
-                      <li>
-                        <i className="fa fa-star" /> 4.8
-                      </li>
-                      <li>
-                        <i className="fa fa-download" /> 2.3M
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="rowItem">
-                  <div className="item">
-                  <img src="/Silver grains_Pori.jpg" className = 'testSnimka'alt="" />
-                    <h4 className='centerItInBox'>
-                      PubG
-                      <br />
-                      <span>Battle S</span>
-                    </h4>
-                    <ul className='centerItInBox'>
-                      <li>
-                        <i className="fa fa-star" /> 4.8
-                      </li>
-                      <li>
-                        <i className="fa fa-download" /> 2.3M
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              <div className="rowItem">
+                
+                <MostPopularBook />
+
+                <MostPopularBook />
+
               </div>
-              <div className="secondTwo">
-                <div className="rowItem">
-                  <div className="item">
-                  <img src="/Silver grains_Pori.jpg" className = 'testSnimka'alt="" />
-                    <h4 className='centerItInBox'>
-                      PubG
-                      <span>Battle S</span>
-                    </h4>
-                    <ul className='centerItInBox'>
-                      <li>
-                        <i className="fa fa-star" /> 4.8
-                      </li>
-                      <li>
-                        <i className="fa fa-download" /> 2.3M
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="rowItem">
-                  <div className="item">
-                  <img src="/Silver grains_Pori.jpg" className = 'testSnimka'alt="" />
-                    <h4 className='centerItInBox'>
-                      PubG
-                      <br />
-                      <span>Battle S</span>
-                    </h4>
-                    <ul className='centerItInBox'>
-                      <li>
-                        <i className="fa fa-star" /> 4.8
-                      </li>
-                      <li>
-                        <i className="fa fa-download" /> 2.3M
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              <div className="rowItem">
+                
+                <MostPopularBook />
+                
+                <MostPopularBook />
+
               </div>
             </div>
 

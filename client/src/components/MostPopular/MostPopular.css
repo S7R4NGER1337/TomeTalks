@@ -8,7 +8,6 @@
 }
 
 .rowItem {
-    flex-wrap: wrap;
     max-width: 300px;
 }
 
@@ -16,7 +15,6 @@
     max-width: 100px;
     margin: 0;
 }
-
 
 .centerItInBox {
     padding-top: 35px;
@@ -29,6 +27,8 @@
 .wrapRows {
     display: flex;
     gap: 350px;
+
+    flex-basis: auto
 }
 
 .most-popular .item {
