@@ -14,13 +14,13 @@ export default function MostPopular() {
               <div className="firstTwo">
                 <div className="rowItem">
                   <div className="item">
-                    <img src="assets/images/popular-01.jpg" alt="" />
-                    <h4>
+                    <img src="/Silver grains_Pori.jpg" className = 'testSnimka'alt="" />
+                    <h4 className='centerItInBox'>
                       Fortnite
                       <br />
                       <span>Sandbox</span>
                     </h4>
-                    <ul>
+                    <ul className='centerItInBox'>
                       <li>
                         <i className="fa fa-star" /> 4.8
                       </li>
@@ -32,13 +32,13 @@ export default function MostPopular() {
                 </div>
                 <div className="rowItem">
                   <div className="item">
-                    <img src="assets/images/popular-02.jpg" alt="" />
-                    <h4>
+                  <img src="/Silver grains_Pori.jpg" className = 'testSnimka'alt="" />
+                    <h4 className='centerItInBox'>
                       PubG
                       <br />
                       <span>Battle S</span>
                     </h4>
-                    <ul>
+                    <ul className='centerItInBox'>
                       <li>
                         <i className="fa fa-star" /> 4.8
                       </li>
@@ -52,13 +52,12 @@ export default function MostPopular() {
               <div className="secondTwo">
                 <div className="rowItem">
                   <div className="item">
-                    <img src="assets/images/popular-02.jpg" alt="" />
-                    <h4>
+                  <img src="/Silver grains_Pori.jpg" className = 'testSnimka'alt="" />
+                    <h4 className='centerItInBox'>
                       PubG
-                      <br />
                       <span>Battle S</span>
                     </h4>
-                    <ul>
+                    <ul className='centerItInBox'>
                       <li>
                         <i className="fa fa-star" /> 4.8
                       </li>
@@ -70,13 +69,13 @@ export default function MostPopular() {
                 </div>
                 <div className="rowItem">
                   <div className="item">
-                    <img src="assets/images/popular-02.jpg" alt="" />
-                    <h4>
+                  <img src="/Silver grains_Pori.jpg" className = 'testSnimka'alt="" />
+                    <h4 className='centerItInBox'>
                       PubG
                       <br />
                       <span>Battle S</span>
                     </h4>
-                    <ul>
+                    <ul className='centerItInBox'>
                       <li>
                         <i className="fa fa-star" /> 4.8
                       </li>
@@ -91,7 +90,7 @@ export default function MostPopular() {
 
             <div className="col-lg-12">
               <div className="main-button">
-                <a href="browse.html">Discover Popular</a>
+                <a href="browse.html">Browse All Books</a>
               </div>
             </div>
           </div>

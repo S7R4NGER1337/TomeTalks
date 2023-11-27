@@ -12,6 +12,20 @@
     max-width: 300px;
 }
 
+.testSnimka{
+    max-width: 100px;
+    margin: 0;
+}
+
+
+.centerItInBox {
+    padding-top: 35px;
+}
+
+.item{
+    display: flex;
+    justify-content: space-around;
+}
 .wrapRows {
     display: flex;
     gap: 350px;
