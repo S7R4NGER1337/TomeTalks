@@ -1,4 +1,5 @@
 import './Header.css'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
@@ -7,9 +8,9 @@ export default function Header() {
         <div className="row">
           <div className="col-12">
             <nav className="main-nav">
-              <a href="index.html" className="logo">
+              <Link to='/' className="logo">
                 <img src="/Screenshot_1-removebg-preview.png" alt="" />
-              </a>
+              </Link>
               <div className="search-input">
                 <form id="search" action="#">
                   <input
@@ -23,12 +24,12 @@ export default function Header() {
               </div>
               <ul className="nav">
                 <li>
-                  <a href="index.html" className="active">
+                  <Link to='/' className="active">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="browse.html">Browse</a>
+                  <Link to="books">Browse</Link>
                 </li>
                 <li>
                   <a href="details.html">Details</a>
