@@ -1,3 +1,8 @@
 .browseContainer{
-    padding-top: 3px;
+    display: flex;
+    margin: 160px 200px;
+    background-color: #27292a;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 50px;
 }

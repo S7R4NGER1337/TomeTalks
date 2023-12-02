@@ -6,6 +6,10 @@ export default function Browse(){
 
         <div className="browseContainer">
             <BrowseItem />
+            <BrowseItem />
+            <BrowseItem />
+            <BrowseItem />
+            <BrowseItem />
         </div>
     )
 }

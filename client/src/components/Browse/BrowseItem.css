@@ -1,0 +1,21 @@
+.browseItemCard{
+    width: 270px;
+    margin: 30px; 
+    display: block;
+    background-color: #1f2122;
+    border-radius: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.browseItemImage{
+    padding: 13px;
+    border-radius: 20px;
+}
+
+
+.browseItemButton{
+    background-color: #e75e8d;
+    border: none;
+    margin-top: 20px;
+}
