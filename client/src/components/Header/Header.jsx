@@ -41,12 +41,6 @@ export default function Header() {
                 <li>
                   <Link to="books" className={getLocation == '/books' ? 'active' : ''}>Browse</Link>
                 </li>
-                <li>
-                  <a href="details.html">Details</a>
-                </li>
-                <li>
-                  <a href="streams.html" >Streams</a>
-                </li>
                 {/* <li>
                   <a href="profile.html">
                     Profile
