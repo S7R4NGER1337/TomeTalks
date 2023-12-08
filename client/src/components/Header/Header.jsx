@@ -1,7 +1,17 @@
+import { useEffect, useState } from 'react';
 import './Header.css'
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
 
 export default function Header() {
+
+  const [getLocation, setLocation] = useState()  
+  const location = useLocation()
+
+  useEffect(() => {
+    setLocation(location.pathname)
+  },[location])
+
   return (
     <header className="header-area header-sticky">
       <div className="container">
@@ -24,24 +34,30 @@ export default function Header() {
               </div>
               <ul className="nav">
                 <li>
-                  <Link to='/' className="active">
+                  <Link to='/' className={getLocation == '/' ? 'active' : ''}>
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="books">Browse</Link>
+                  <Link to="books" className={getLocation == '/books' ? 'active' : ''}>Browse</Link>
                 </li>
                 <li>
                   <a href="details.html">Details</a>
                 </li>
                 <li>
-                  <a href="streams.html">Streams</a>
+                  <a href="streams.html" >Streams</a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="profile.html">
-                    Profile{" "}
+                    Profile
                     <img src="assets/images/profile-header.jpg" alt="" />
                   </a>
+                </li> */}
+                <li>
+                  <Link to='user/login' className={getLocation == '/user/login' ? 'active' : ''}>
+                    Login
+                    <img src="assets/images/profile-header.jpg" alt="" />
+                  </Link>
                 </li>
               </ul>
               <a className="menu-trigger">
