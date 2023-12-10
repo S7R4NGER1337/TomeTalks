@@ -14,13 +14,13 @@ function App() {
   }  
 
   return (
-    <AuthContext.Provider>
+    <AuthContext.Provider value={{loginSubmitHandler}}>
       <Header />
 
       <Routes>
         <Route path="/" element={<MainPage />}/>
         <Route path="/books" element={<Browse />}/>
-        <Route path="/user/login" element={<Login loginSubmitHandler={loginSubmitHandler}/>}/>
+        <Route path="/user/login" element={<Login />}/>
       </Routes>
 
     </AuthContext.Provider>
