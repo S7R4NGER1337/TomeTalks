@@ -1,7 +1,10 @@
-import { get } from "../lib/requester";
+import * as request from '../lib/requester';
 
-export function login(email, password){
-    const userData = get('users/login', {email, password})
+const baseUrl = 'http://localhost:3030/users';
 
-    console.log(userData);
-}
+export const login = async (data) => {
+    const result = await request.post(`${baseUrl}/login`, data);
+
+    console.log(result);
+    return result;
+};

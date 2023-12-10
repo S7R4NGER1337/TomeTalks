@@ -5,12 +5,16 @@ import MainPage from "./components/Main/MainPage/MainPage";
 import Login from "./components/User/Login";
 import { useState } from "react";
 import AuthContext from "./contexts/authContext";
+import { login } from "./services/userService";
 
 function App() {
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = (values) =>{
-    console.log(values);
+
+  const loginSubmitHandler = async (values) =>{
+    const result = await login(values)
+
+    return result
   }  
 
   return (
