@@ -1,11 +1,14 @@
 import useForm from "../../hooks/useForm";
+import { CreateBooks } from "../../services/bookService";
 import "./CreateBook.css";
 
 export default function CreateBook() {
 
     
-    function createSubmitHandler(values){
-        console.log(values);
+    async function createSubmitHandler(values){
+        const data = await CreateBooks(values)
+
+        console.log(data);
     }
 
     const {values, onChange, onSubmit} = useForm(createSubmitHandler,{bookName: '', imageUrl: ''})
