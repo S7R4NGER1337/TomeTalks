@@ -6,10 +6,15 @@ import Login from "./components/User/Login";
 import { useState } from "react";
 import AuthContext from "./contexts/authContext";
 import { login } from "./services/userService";
+import CreateBook from "./components/Book/CreateBook";
 
 function App() {
   const navigate = useNavigate()
-  const [auth, setAuth] = useState({});
+  const [auth, setAuth] = useState(() => {
+    localStorage.removeItem('accessToken')
+
+    return {}
+  });
 
 
   const loginSubmitHandler = async (values) =>{
@@ -28,6 +33,7 @@ function App() {
         <Route path="/" element={<MainPage />}/>
         <Route path="/books" element={<Browse />}/>
         <Route path="/user/login" element={<Login />}/>
+        <Route path="/books/create" element={<CreateBook />}/>
       </Routes>
 
     </AuthContext.Provider>
