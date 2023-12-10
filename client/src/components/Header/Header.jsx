@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react';
-import './Header.css'
-import { Link } from 'react-router-dom'
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import "./Header.css";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function Header() {
-
-  const [getLocation, setLocation] = useState()  
-  const location = useLocation()
+  const [getLocation, setLocation] = useState("");
+  const location = useLocation();
 
   useEffect(() => {
-    setLocation(location.pathname)
-  },[location])
+    setLocation(location.pathname);
+  }, [location]);
 
   return (
     <header className="header-area header-sticky">
@@ -18,7 +17,7 @@ export default function Header() {
         <div className="row">
           <div className="col-12">
             <nav className="main-nav">
-              <Link to='/' className="logo">
+              <Link to="/" className="logo">
                 <img src="/Screenshot_1-removebg-preview.png" alt="" />
               </Link>
               <div className="search-input">
@@ -34,12 +33,17 @@ export default function Header() {
               </div>
               <ul className="nav">
                 <li>
-                  <Link to='/' className={getLocation == '/' ? 'active' : ''}>
+                  <Link to="/" className={getLocation == "/" ? "active" : ""}>
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="books" className={getLocation == '/books' ? 'active' : ''}>Browse</Link>
+                  <Link
+                    to="books"
+                    className={getLocation == "/books" ? "active" : ""}
+                  >
+                    Browse
+                  </Link>
                 </li>
                 {/* <li>
                   <a href="profile.html">
@@ -48,7 +52,10 @@ export default function Header() {
                   </a>
                 </li> */}
                 <li>
-                  <Link to='user/login' className={getLocation == '/user/login' ? 'active' : ''}>
+                  <Link
+                    to="user/login"
+                    className={getLocation == "/user/login" ? "active" : ""}
+                  >
                     Login
                     <img src="assets/images/profile-header.jpg" alt="" />
                   </Link>
