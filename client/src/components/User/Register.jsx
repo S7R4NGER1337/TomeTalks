@@ -5,8 +5,8 @@ import AuthContext from '../../contexts/authContext';
 
 export default function Register(){
 
-    const {loginSubmitHandler} = useContext(AuthContext)
-    const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {email: '', password: ''})
+    const {registerSubmitHandler} = useContext(AuthContext)
+    const {values, onChange, onSubmit} = useForm(registerSubmitHandler, {email: '', password: ''})
 
   return (
     <div className="wrapper">

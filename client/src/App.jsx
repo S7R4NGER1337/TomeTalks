@@ -4,7 +4,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import MainPage from "./components/Main/MainPage/MainPage";
 import Login from "./components/User/Login";
 import AuthContext from "./contexts/authContext";
-import { login } from "./services/userService";
+import { login, register } from "./services/userService";
 import CreateBook from "./components/Book/CreateBook";
 import usePersistedState from "./hooks/usePersistedState";
 import Register from "./components/User/Register";
@@ -29,7 +29,7 @@ function App() {
   }
 
   return (
-    <AuthContext.Provider value={{loginSubmitHandler, isAuthenticated: !!auth.email}}>
+    <AuthContext.Provider value={{loginSubmitHandler, registerSubmitHandler, isAuthenticated: !!auth.email}}>
       <Header />
 
       <Routes>
