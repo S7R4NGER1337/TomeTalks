@@ -7,6 +7,7 @@ import AuthContext from "./contexts/authContext";
 import { login } from "./services/userService";
 import CreateBook from "./components/Book/CreateBook";
 import usePersistedState from "./hooks/usePersistedState";
+import Register from "./components/User/Register";
 
 function App() {
   const navigate = useNavigate()
@@ -29,6 +30,7 @@ function App() {
         <Route path="/" element={<MainPage />}/>
         <Route path="/books" element={<Browse />}/>
         <Route path="/user/login" element={<Login />}/>
+        <Route path="/user/register" element={<Register />}/>
         <Route path="/books/create" element={<CreateBook />}/>
       </Routes>
 

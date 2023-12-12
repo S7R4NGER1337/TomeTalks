@@ -3,16 +3,16 @@ import useForm from '../../hooks/useForm';
 import { useContext } from 'react';
 import AuthContext from '../../contexts/authContext';
 
-export default function Login() {
-  
-  const {loginSubmitHandler} = useContext(AuthContext)
-  const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {email: '', password: ''})
+export default function Register(){
+
+    const {loginSubmitHandler} = useContext(AuthContext)
+    const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {email: '', password: ''})
 
   return (
     <div className="wrapper">
       <div className="inner">
         <form action="" className='loginForm' onSubmit={onSubmit}>
-          <h3>Login</h3>
+          <h3>Register</h3>
           <p>
             Welcome to TomeTalks
           </p>
