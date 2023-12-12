@@ -14,3 +14,5 @@ export const register = async (data) => {
 
     return result
 }
+
+export const logout = async () => request.get(`${baseUrl}/logout`);

@@ -8,6 +8,7 @@ import { login, register } from "./services/userService";
 import CreateBook from "./components/Book/CreateBook";
 import usePersistedState from "./hooks/usePersistedState";
 import Register from "./components/User/Register";
+import Logout from "./components/User/Logout";
 
 function App() {
   const navigate = useNavigate()
@@ -28,8 +29,13 @@ function App() {
     navigate('/')
   }
 
+  const logoutHandler = () => {
+    setAuth({});
+    localStorage.removeItem('accessToken');
+  };
+
   return (
-    <AuthContext.Provider value={{loginSubmitHandler, registerSubmitHandler, isAuthenticated: !!auth.email}}>
+    <AuthContext.Provider value={{loginSubmitHandler, registerSubmitHandler, logoutHandler, isAuthenticated: !!auth.email}}>
       <Header />
 
       <Routes>
@@ -37,6 +43,7 @@ function App() {
         <Route path="/books" element={<Browse />}/>
         <Route path="/user/login" element={<Login />}/>
         <Route path="/user/register" element={<Register />}/>
+        <Route path="/user/logout" element={<Logout />}/>
         <Route path="/books/create" element={<CreateBook />}/>
       </Routes>
 

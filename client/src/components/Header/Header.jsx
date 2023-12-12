@@ -74,8 +74,8 @@ export default function Header() {
                 </li>}
                 {isAuthenticated && <li>
                   <Link
-                    to="user/login"
-                    className={getLocation == "/user/login" ? "active" : ""}
+                    to="user/logout"
+                    className={getLocation == "/user/logout" ? "active" : ""}
                   >
                     Logut
                     <img src="assets/images/profile-header.jpg" alt="" />
