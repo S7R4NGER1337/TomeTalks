@@ -1,13 +1,16 @@
 import useForm from "../../hooks/useForm";
 import { CreateBooks } from "../../services/bookService";
+import { useNavigate } from "react-router-dom";
 import "./CreateBook.css";
 
 export default function CreateBook() {
 
-    
+  const navigate = useNavigate()
+
     async function createSubmitHandler(values){
         const data = await CreateBooks(values)
 
+        navigate('/')
         console.log(data);
     }
 

@@ -5,21 +5,19 @@ import { GetAllBooks } from "../../services/bookService"
 
 export default function Browse(){
 
-    const [books, setBooks] = useState({})
+    const [books, setBooks] = useState([])
 
     useEffect(() =>  {
-        setBooks(GetAllBooks())
+        GetAllBooks().then(result => { setBooks(result) })
         console.log(books);
     },[])
     
     return(
 
         <div className="browseContainer">
-            <BrowseItem />
-            <BrowseItem />
-            <BrowseItem />
-            <BrowseItem />
-            <BrowseItem />
+            {books.map((book) => (
+                <BrowseItem key={book._id} book/>
+            ))}
         </div>
     )
 }

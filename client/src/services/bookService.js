@@ -9,8 +9,7 @@ export const CreateBooks = async (data) => {
 }
 
 export const GetAllBooks = async () => {
+    const books = await request.get('http://localhost:3030/data/books')
 
-    const book = await request.get('http://localhost:3030/data/books')
-
-    return book
+    return books
 }
