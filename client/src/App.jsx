@@ -17,10 +17,16 @@ function App() {
   const loginSubmitHandler = async (values) =>{
     const result = await login(values)
 
-    localStorage.setItem('accessToken', result.accessToken)
     setAuth(result);
     navigate('/')
-  }  
+  }
+
+  const registerSubmitHandler = async (values) => {
+    const result = await register(values)
+
+    setAuth(result);
+    navigate('/')
+  }
 
   return (
     <AuthContext.Provider value={{loginSubmitHandler, isAuthenticated: !!auth.email}}>
