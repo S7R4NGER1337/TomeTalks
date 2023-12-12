@@ -9,14 +9,13 @@ export default function Browse(){
 
     useEffect(() =>  {
         GetAllBooks().then(result => { setBooks(result) })
-        console.log(books);
     },[])
     
     return(
 
         <div className="browseContainer">
             {books.map((book) => (
-                <BrowseItem key={book._id} book/>
+                <BrowseItem key={book._id} book={book}/>
             ))}
         </div>
     )
