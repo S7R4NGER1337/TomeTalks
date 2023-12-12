@@ -3,18 +3,14 @@ import Browse from "./components/Browse/Browse";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import MainPage from "./components/Main/MainPage/MainPage";
 import Login from "./components/User/Login";
-import { useState } from "react";
 import AuthContext from "./contexts/authContext";
 import { login } from "./services/userService";
 import CreateBook from "./components/Book/CreateBook";
+import usePersistedState from "./hooks/usePersistedState";
 
 function App() {
   const navigate = useNavigate()
-  const [auth, setAuth] = useState(() => {
-    localStorage.removeItem('accessToken')
-
-    return {}
-  });
+  const [auth, setAuth] = usePersistedState('auth', {});
 
 
   const loginSubmitHandler = async (values) =>{
