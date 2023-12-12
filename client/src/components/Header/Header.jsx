@@ -62,7 +62,8 @@ export default function Header() {
                     <img src="assets/images/profile-header.jpg" alt="" />
                   </a>
                 </li> */}
-                <li>
+
+                {!isAuthenticated && <li>
                   <Link
                     to="user/login"
                     className={getLocation == "/user/login" ? "active" : ""}
@@ -70,7 +71,16 @@ export default function Header() {
                     Login
                     <img src="assets/images/profile-header.jpg" alt="" />
                   </Link>
-                </li>
+                </li>}
+                {isAuthenticated && <li>
+                  <Link
+                    to="user/login"
+                    className={getLocation == "/user/login" ? "active" : ""}
+                  >
+                    Logut
+                    <img src="assets/images/profile-header.jpg" alt="" />
+                  </Link>
+                </li>}
               </ul>
               <a className="menu-trigger">
                 <span>Menu</span>
