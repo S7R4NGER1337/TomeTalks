@@ -8,13 +8,12 @@ export default function CreateBook() {
   const navigate = useNavigate()
 
     async function createSubmitHandler(values){
-        const data = await CreateBooks(values)
+        await CreateBooks(values)
 
         navigate('/')
-        console.log(data);
     }
 
-    const {values, onChange, onSubmit} = useForm(createSubmitHandler,{bookName: '', imageUrl: ''})
+    const {values, onChange, onSubmit} = useForm(createSubmitHandler,{bookName: '', imageUrl: '', description: ''})
 
   return (
     <div className="wrapper fadeInDown">
@@ -41,6 +40,15 @@ export default function CreateBook() {
             placeholder="imageUrl"
             onChange={onChange}
             value={values.imageUrl}
+          />
+          <input
+            type="text"
+            id="bookName"
+            className="fadeIn second"
+            name="description"
+            placeholder="description"
+            onChange={onChange}
+            value={values.description}
           />
           <input
             type="submit"

@@ -33,7 +33,6 @@ return (
         {/* gallery-wrap .end// */}
       </aside>
 
-
       <main className="col-lg-6" style={{border: '1px'}}>
         <div className="ps-lg-3">
           <h4 className="zaglavie">
@@ -41,7 +40,7 @@ return (
           </h4>
         </div>
         <p>
-          {book.bookDetails}
+          {book.description}
         </p>
       </main>
         </div>
