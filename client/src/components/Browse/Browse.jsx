@@ -11,12 +11,20 @@ export default function Browse(){
         GetAllBooks().then(result => { setBooks(result) })
     },[])
     
-    return(
-
+    if(books.length > 0){
+        return(
+            <div className="browseContainer">
+                {books.map((book) => (
+                    <BrowseItem key={book._id} book={book}/>
+                ))}
+            </div>
+        )
+    } else {
+        return(
         <div className="browseContainer">
-            {books.map((book) => (
-                <BrowseItem key={book._id} book={book}/>
-            ))}
+                <h1>There are no books</h1>
         </div>
-    )
+        )
+    }
+    
 }
