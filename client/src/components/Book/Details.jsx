@@ -1,11 +1,16 @@
+import { useEffect, useState } from 'react'
+import { GetBookById } from '../../services/bookService'
 import './Details.css'
 
 export default function Details(){
 
+    const [book, setBook] = useState({})
+    useEffect(() => {
+        GetBookById("901fdb5d-cf99-42b8-b100-4ce73abe1cb3").then(res => {
+            setBook(res[0])
+        })
+    },[])
 return (
-
-
-    
 <section className="py-5">
   <div className="container">
     <div className="row gx-5">
@@ -20,7 +25,7 @@ return (
             <img
               style={{ maxWidth: "100%", height: "60vh", margin: "auto", outline: 'none' }}
               className="rounded-4 fit"
-              src="https://i3.helikon.bg/products/4862/21/214862/214862z.jpg?w=180&t=1702486845"
+              src={book.imageUrl}
             />
           </a>
         </div>
@@ -32,15 +37,11 @@ return (
       <main className="col-lg-6" style={{border: '1px'}}>
         <div className="ps-lg-3">
           <h4 className="zaglavie">
-            Quality Mens Hoodie for Winter, Mens Fashion <br />
-            Casual Hoodie
+            {book.bookName}
           </h4>
         </div>
         <p>
-          Modern look and quality demo item is a streetwear-inspired collection
-          that continues to break away from the conventions of mainstream
-          fashion. Made in Italy, these black and brown clothing low-top shirts
-          for men.
+          {book.bookDetails}
         </p>
       </main>
         </div>

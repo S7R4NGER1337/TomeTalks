@@ -13,3 +13,9 @@ export const GetAllBooks = async () => {
 
     return books
 }
+
+export const GetBookById = async (id) => {
+    const book = await request.get(`http://localhost:3030/data/books?_id=${id}`)
+
+    return book
+}
