@@ -1,16 +1,39 @@
 import { useEffect, useState } from 'react'
-import { GetBookById } from '../../services/bookService'
+import { useLocation } from "react-router-dom";
+import { GetBookById, PostComment, getComments } from '../../services/bookService'
+import Comment from './Comment';
 import './Details.css'
 
 export default function Details(){
 
+    const [comments, setComments] = useState([])
     const [book, setBook] = useState({})
+
+    let location = useLocation();
+    location = location.pathname.split('/')[2]
+
     useEffect(() => {
-        GetBookById("901fdb5d-cf99-42b8-b100-4ce73abe1cb3").then(res => {
-            setBook(res[0])
+        GetBookById(location).then(res => {
+            setBook(res)
         })
     },[])
+
+    useEffect(() => {
+      getComments(location).then(res => {
+        setComments(res)
+      })
+    },[])
+
+    async function postComment(e){
+       e.preventDefault()
+       const commentToPost = document.querySelector('.commentInput').value
+       const comment = await(PostComment({commentToPost, location}))
+       setComments(state => ([...state, comment]))
+
+    }
+
 return (
+<>
 <section className="py-5">
   <div className="container">
     <div className="row gx-5">
@@ -42,8 +65,26 @@ return (
         <p>
           {book.description}
         </p>
+
+        <form onSubmit={postComment}>
+          <textarea type="text" name='comment' className='commentInput' rows="5" />
+          <button>post comment</button>
+        </form>
+
       </main>
         </div>
   </div>
-</section>)
+</section>
+
+<section>
+  <div className='comments'>
+    <ul>
+      {comments.map((comment) => (
+                    <Comment key={comment._id} commentText={comment.commentToPost}/>
+                  ))}
+    </ul>
+  </div>
+</section>
+</>
+)
 }
