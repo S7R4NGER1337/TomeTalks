@@ -79,7 +79,7 @@ return (
         }
         {ownerId._id === book.ownerId &&
                <div className='editAndDelete'>
-                  <button>Edit</button>
+                  <button onClick={() => navigate(`/books/edit/${location}`)}>Edit</button>
 
                   <button onClick={() => {
                     DeleteBook(location)

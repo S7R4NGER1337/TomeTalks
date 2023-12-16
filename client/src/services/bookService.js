@@ -36,3 +36,9 @@ export const getComments = async (id) => {
 export const DeleteBook = async (id) => {
     await request.remove(`http://localhost:3030/data/books/${id}`)
 }
+
+export const EditBook = async (id, data) => {
+    const book = await request.put(`http://localhost:3030/data/books/${id}`, data)
+
+    return book
+}

@@ -10,7 +10,7 @@ export default function CreateBook() {
     async function createSubmitHandler(values){
         await CreateBooks(values)
 
-        navigate('/')
+        navigate('/books')
     }
 
     const {values, onChange, onSubmit} = useForm(createSubmitHandler,{bookName: '', imageUrl: '', description: ''})
