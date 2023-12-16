@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { GetBookById, PostComment, getComments, DeleteBook } from '../../services/bookService'
 import Comment from './Comment';
 import './Details.css'
@@ -9,7 +9,7 @@ export default function Details(){
     const [comments, setComments] = useState([])
     const [book, setBook] = useState({})
     const ownerId = localStorage.getItem('auth')
-
+    const navigate = useNavigate()
     let location = useLocation();
     location = location.pathname.split('/')[2]
 
@@ -81,7 +81,10 @@ return (
                <div className='editAndDelete'>
                   <button>Edit</button>
 
-                  <button onClick={() => DeleteBook(location)}>Delete</button>
+                  <button onClick={() => {
+                    DeleteBook(location)
+                    navigate('/')
+                    }}>Delete</button>
                </div>
         }
 
