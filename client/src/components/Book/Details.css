@@ -39,3 +39,8 @@
     font-size: 20px;
     pointer-events: none;
 }
+
+.editAndDelete{
+    margin-top: 50px;
+    display: flex;
+}

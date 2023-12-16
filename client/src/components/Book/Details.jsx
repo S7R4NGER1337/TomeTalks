@@ -8,6 +8,7 @@ export default function Details(){
 
     const [comments, setComments] = useState([])
     const [book, setBook] = useState({})
+    const ownerId = localStorage.getItem('auth')
 
     let location = useLocation();
     location = location.pathname.split('/')[2]
@@ -66,10 +67,19 @@ return (
           {book.description}
         </p>
 
-        <form onSubmit={postComment}>
-          <textarea type="text" name='comment' className='commentInput' rows="5" />
-          <button>post comment</button>
-        </form>
+        {ownerId._id != book.ownerId &&
+                <form onSubmit={postComment}>
+                <textarea type="text" name='comment' className='commentInput' rows="5" />
+                <button>post comment</button>
+              </form>
+        }
+        {ownerId._id === book.ownerId &&
+               <div className='editAndDelete'>
+                  <button>Edit</button>
+                  <button>Delete</button>
+               </div>
+        }
+
 
       </main>
         </div>
