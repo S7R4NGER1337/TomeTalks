@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
 import MostPopularBook from "../MostPopularBook/MostPopularBook";
 import "./MostPopular.css";
+import { GetAllBooks } from "../../../services/bookService";
+
 export default function MostPopular() {
+
+  const [FirstBooks, setFirstBooks] = useState([])
+  const [SecondBooks, setSecondBooks] = useState([])
+
+  
+  useEffect(() => {
+    GetAllBooks().then(res => {
+      setFirstBooks(res.slice(0,2))
+      setSecondBooks(res.slice(2,4));
+    })
+  },[])
+
   return (
     <div className="most-popular">
       <div className="row">
@@ -13,17 +28,18 @@ export default function MostPopular() {
           <div className="row">
             <div className="wrapRows">
               <div className="rowItem">
-                
-                <MostPopularBook />
 
-                <MostPopularBook />
 
+              {FirstBooks.map((book) => (
+                    <MostPopularBook key={book._id} book={book}/>
+              ))}
               </div>
               <div className="rowItem">
+
+              {SecondBooks.map((book) => (
+                    <MostPopularBook key={book._id} book={book}/>
+              ))}
                 
-                <MostPopularBook />
-                
-                <MostPopularBook />
 
               </div>
             </div>
