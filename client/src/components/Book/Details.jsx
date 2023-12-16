@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from "react-router-dom";
-import { GetBookById, PostComment, getComments } from '../../services/bookService'
+import { GetBookById, PostComment, getComments, DeleteBook } from '../../services/bookService'
 import Comment from './Comment';
 import './Details.css'
 
@@ -32,6 +32,10 @@ export default function Details(){
        setComments(state => ([...state, comment]))
 
     }
+
+    // async function deleteBook(){
+    //   console.log(1);
+    // }
 
 return (
 <>
@@ -76,7 +80,8 @@ return (
         {ownerId._id === book.ownerId &&
                <div className='editAndDelete'>
                   <button>Edit</button>
-                  <button>Delete</button>
+
+                  <button onClick={() => DeleteBook(location)}>Delete</button>
                </div>
         }
 
