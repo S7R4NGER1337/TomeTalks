@@ -11,6 +11,7 @@ import Register from "./components/User/Register";
 import Logout from "./components/User/Logout";
 import Details from "./components/Book/Details";
 import EditBookComponent from "./components/Book/EditBook";
+import AuthGuard from "./components/AuthGuard/AuthGuaard";
 
 function App() {
   const navigate = useNavigate()
@@ -52,10 +53,14 @@ function App() {
         <Route path="/books" element={<Browse />}/>
         <Route path="/user/login" element={<Login />}/>
         <Route path="/user/register" element={<Register />}/>
-        <Route path="/user/logout" element={<Logout />}/>
-        <Route path="/books/create" element={<CreateBook />}/>
         <Route path="/books/:bookId" element={<Details/>}/>
-        <Route path="/books/edit/:bookId" element={<EditBookComponent/>}/>
+
+        <Route element={<AuthGuard />}>
+          <Route path="/user/logout" element={<Logout />}/>
+          <Route path="/books/create" element={<CreateBook />}/>
+          <Route path="/books/edit/:bookId" element={<EditBookComponent/>}/>
+        </Route>
+        
       </Routes>
 
     </AuthContext.Provider>
