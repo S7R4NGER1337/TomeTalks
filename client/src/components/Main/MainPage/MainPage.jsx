@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MostPopular from "../MostPopular/MostPopular";
 import "./MainPage.css";
 
@@ -16,7 +17,7 @@ export default function MainPage() {
                       <em>Browse</em> Books Reviews
                     </h4>
                     <div className="main-button">
-                      <a href="browse.html">Browse Now</a>
+                    <Link to={'/books'}>Browse Now</Link> 
                     </div>
                   </div>
                 </div>

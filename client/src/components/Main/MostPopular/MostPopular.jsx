@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import MostPopularBook from "../MostPopularBook/MostPopularBook";
+import { Link } from "react-router-dom";
 import "./MostPopular.css";
 import { GetAllBooks } from "../../../services/bookService";
 
@@ -46,7 +47,7 @@ export default function MostPopular() {
 
             <div className="col-lg-12">
               <div className="main-button">
-                <a href="browse.html">Browse All Books</a>
+              <Link to={'/books'}>Browse All Books</Link>
               </div>
             </div>
           </div>
