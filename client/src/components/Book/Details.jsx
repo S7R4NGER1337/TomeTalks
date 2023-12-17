@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from "react-router-dom";
 import { GetBookById, PostComment, getComments, DeleteBook } from '../../services/bookService'
 import Comment from './Comment';
 import './Details.css'
+import AuthContext from '../../contexts/authContext';
 
 export default function Details(){
 
     const [comments, setComments] = useState([])
     const [book, setBook] = useState({})
+    const auth = useContext(AuthContext)
     const ownerId = JSON.parse(localStorage.getItem('auth'))
     const navigate = useNavigate()
     let location = useLocation();
@@ -27,9 +29,13 @@ export default function Details(){
 
     async function postComment(e){
        e.preventDefault()
-       const commentToPost = document.querySelector('.commentInput').value
-       const comment = await(PostComment({commentToPost, location}))
-       setComments(state => ([...state, comment]))
+       try{
+         const commentToPost = document.querySelector('.commentInput').value
+         const comment = await(PostComment({commentToPost, location}))
+         setComments(state => ([...state, comment]))
+       } catch (error) {
+        alert(error)
+       }
 
     }
 
@@ -71,13 +77,14 @@ return (
           {book.description}
         </p>
 
-        {ownerId._id != book._ownerId &&
+
+        {auth.isAuthenticated && ownerId._id != book._ownerId &&
                 <form onSubmit={postComment}>
-                <textarea type="text" name='comment' className='commentInput' rows="5" />
+                <textarea type="text" name='comment' required className='commentInput' rows="5" />
                 <button>post comment</button>
               </form>
         }
-        {ownerId._id == book._ownerId &&
+        { ownerId._id == book._ownerId &&
                <div className='editAndDelete'>
                   <button onClick={() => navigate(`/books/edit/${location}`)}>Edit</button>
 
