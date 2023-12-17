@@ -8,7 +8,7 @@ export default function Details(){
 
     const [comments, setComments] = useState([])
     const [book, setBook] = useState({})
-    const ownerId = localStorage.getItem('auth')
+    const ownerId = JSON.parse(localStorage.getItem('auth'))
     const navigate = useNavigate()
     let location = useLocation();
     location = location.pathname.split('/')[2]
@@ -71,13 +71,13 @@ return (
           {book.description}
         </p>
 
-        {ownerId._id != book.ownerId &&
+        {ownerId._id != book._ownerId &&
                 <form onSubmit={postComment}>
                 <textarea type="text" name='comment' className='commentInput' rows="5" />
                 <button>post comment</button>
               </form>
         }
-        {ownerId._id === book.ownerId &&
+        {ownerId._id == book._ownerId &&
                <div className='editAndDelete'>
                   <button onClick={() => navigate(`/books/edit/${location}`)}>Edit</button>
 
