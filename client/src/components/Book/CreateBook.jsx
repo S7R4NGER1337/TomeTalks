@@ -2,6 +2,7 @@ import useForm from "../../hooks/useForm";
 import { CreateBooks } from "../../services/bookService";
 import { useNavigate } from "react-router-dom";
 import "./CreateBook.css";
+import { useEffect, useState } from "react";
 
 export default function CreateBook() {
 
@@ -12,7 +13,6 @@ export default function CreateBook() {
 
         navigate('/books')
     }
-
     const {values, onChange, onSubmit} = useForm(createSubmitHandler,{bookName: '', imageUrl: '', description: ''})
 
   return (
@@ -20,7 +20,6 @@ export default function CreateBook() {
       <div id="formContent">
         <h2 className="active"> Create Book </h2>
         <div className="fadeIn first">
-          {/* <img src="/Silver grains_Pori.jpg" id="icon" alt="User Icon" /> */}
         </div>
         <form onSubmit={onSubmit}>
           <input
@@ -31,6 +30,7 @@ export default function CreateBook() {
             placeholder="bookName"
             onChange={onChange}
             value={values.bookName}
+            required
           />
           <input
             type="text"
@@ -40,6 +40,7 @@ export default function CreateBook() {
             placeholder="imageUrl"
             onChange={onChange}
             value={values.imageUrl}
+            required
           />
           <input
             type="text"
@@ -49,12 +50,13 @@ export default function CreateBook() {
             placeholder="description"
             onChange={onChange}
             value={values.description}
-          />
+            required
+            />
+
           <input
             type="submit"
             className="fadeIn fourth"
-            defaultValue="Log In"
-          />
+            defaultValue="Log In"/>
         </form>
       </div>
     </div>

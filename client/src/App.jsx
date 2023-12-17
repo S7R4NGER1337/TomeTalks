@@ -18,17 +18,24 @@ function App() {
 
 
   const loginSubmitHandler = async (values) =>{
-    const result = await login(values)
-
-    setAuth(result);
-    navigate('/')
+    try{
+      const result = await login(values)
+      setAuth(result);
+      navigate('/')
+    } catch (error) {
+      alert(error.message)
+    }
   }
 
   const registerSubmitHandler = async (values) => {
+    try{
     const result = await register(values)
 
     setAuth(result);
     navigate('/')
+    } catch (error) {
+      alert(error.message)
+    }
   }
 
   const logoutHandler = () => {

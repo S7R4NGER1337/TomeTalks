@@ -17,12 +17,12 @@ export default function Login() {
             Welcome to TomeTalks
           </p>
           <label className="form-group">
-            <input type="text" className="form-control" required="" name='email' onChange={onChange} value={values.email}/>
+            <input type="text" className="form-control" required name='email' onChange={onChange} value={values.email}/>
             <span>Your Email</span>
             <span className="border" />
           </label>
           <label className="form-group">
-            <input type="password" className="form-control" required="" name="password" onChange={onChange} value={values.password}/>
+            <input type="password" className="form-control" required name="password" onChange={onChange} value={values.password}/>
             <span htmlFor="">Your Password</span>
             <span className="border" />
           </label>

@@ -1,5 +1,4 @@
 import MostPopular from "../MostPopular/MostPopular";
-import Recomended from "../Recommended/Recomended";
 import "./MainPage.css";
 
 export default function MainPage() {
@@ -26,7 +25,6 @@ export default function MainPage() {
 
             <MostPopular />
 
-            <Recomended />
           </div>
         </div>
       </div>
