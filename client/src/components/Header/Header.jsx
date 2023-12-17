@@ -22,17 +22,6 @@ export default function Header() {
               <Link to="/" className="logo">
                 <img src="/Screenshot_1-removebg-preview.png" alt="" />
               </Link>
-              <div className="search-input">
-                <form id="search" action="#">
-                  <input
-                    type="text"
-                    placeholder="Type Something"
-                    id="searchText"
-                    name="searchKeyword"
-                  />
-                  <i className="fa fa-search" />
-                </form>
-              </div>
               <ul className="nav">
                 <li>
                   <Link to="/" className={getLocation == "/" ? "active" : ""}>
@@ -63,15 +52,34 @@ export default function Header() {
                   </a>
                 </li> */}
 
-                {!isAuthenticated && <li>
+                {!isAuthenticated && 
+                <>
+                <li>
                   <Link
                     to="user/login"
                     className={getLocation == "/user/login" ? "active" : ""}
+                    style={{'background-color': '#27292a',
+                      'padding': '8px 10px 8px 20px',
+                      'border-radius': '23px'}}
                   >
                     Login
                     <img src="assets/images/profile-header.jpg" alt="" />
                   </Link>
-                </li>}
+
+                  
+                </li>
+                <li>
+                  <Link
+                    to="user/register"
+                    className={getLocation == "/user/register" ? "active" : ""}
+                  >
+                    Register
+                    <img src="assets/images/profile-header.jpg" alt="" />
+                  </Link>
+                </li>
+                </>
+                }
+
                 {isAuthenticated && <li>
                   <Link
                     to="user/logout"
