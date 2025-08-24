@@ -37,6 +37,10 @@ export const DeleteBook = async (id) => {
     await request.remove(`http://localhost:3030/data/books/${id}`)
 }
 
+export const DeleteComment = async (id) => {
+    await request.remove(`http://localhost:3030/data/comments/${id}`)
+}
+
 export const EditBook = async (id, data) => {
     const book = await request.put(`http://localhost:3030/data/books/${id}`, data)
 

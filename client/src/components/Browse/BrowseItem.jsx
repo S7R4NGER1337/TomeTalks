@@ -11,7 +11,7 @@ export default function BrowseItem(data) {
       <Card.Body>
         <Card.Title>{data.book.bookName}</Card.Title>
         <Card.Text>
-          {data.book.description}
+          <Link to={`/books/${data.book._id}`}> description </Link>
         </Card.Text>
         <Link to={`/books/${data.book._id}`}> <Button variant="primary" className="browseItemButton">Go To details</Button> </Link>
       </Card.Body>

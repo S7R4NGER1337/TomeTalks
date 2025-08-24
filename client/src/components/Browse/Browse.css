@@ -6,3 +6,10 @@
     flex-wrap: wrap;
     border-radius: 50px;
 }
+
+@media (max-width: 992px) {
+    .browseContainer{
+        margin: 0px;
+        margin-top: 50%;
+    }
+}

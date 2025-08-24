@@ -10,11 +10,12 @@ export default function usePersistedState(item, defaultValue){
         return defaultValue
     })
 
+    
     const setPresistedState = (value) => {
         setState(value)
 
         let result;
-        if(typeof value === 'function'){
+        if(typeof value === 'function'){            
             result = JSON.stringify(value(state))
         } else {
             result = JSON.stringify(value)

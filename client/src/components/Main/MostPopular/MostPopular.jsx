@@ -30,7 +30,6 @@ export default function MostPopular() {
             <div className="wrapRows">
               <div className="rowItem">
 
-
               {FirstBooks.map((book) => (
                     <MostPopularBook key={book._id} book={book}/>
               ))}

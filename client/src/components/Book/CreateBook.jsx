@@ -2,7 +2,6 @@ import useForm from "../../hooks/useForm";
 import { CreateBooks } from "../../services/bookService";
 import { useNavigate } from "react-router-dom";
 import "./CreateBook.css";
-import { useEffect, useState } from "react";
 
 export default function CreateBook() {
 

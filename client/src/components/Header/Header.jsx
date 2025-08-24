@@ -6,12 +6,17 @@ import AuthContext from "../../contexts/authContext";
 
 export default function Header() {
   const [getLocation, setLocation] = useState("");
+  const [getMenuState, setMenuState] = useState(false)
   const location = useLocation();
   const {isAuthenticated} = useContext(AuthContext)
 
   useEffect(() => {
     setLocation(location.pathname);
   }, [location]);
+
+  function changeMenuState() {
+    setMenuState(!getMenuState)
+  }
 
   return (
     <header className="header-area header-sticky">
@@ -22,7 +27,7 @@ export default function Header() {
               <Link to="/" className="logo">
                 <img src="/Screenshot_1-removebg-preview.png" alt="" />
               </Link>
-              <ul className="nav">
+              <ul className="nav" hidden={getMenuState}>
                 <li>
                   <Link to="/" className={getLocation == "/" ? "active" : ""}>
                     Home
@@ -44,13 +49,6 @@ export default function Header() {
                     Create
                   </Link>
                 </li>}
-                
-                {/* <li>
-                  <a href="profile.html">
-                    Profile
-                    <img src="assets/images/profile-header.jpg" alt="" />
-                  </a>
-                </li> */}
 
                 {!isAuthenticated && 
                 <>
@@ -58,9 +56,9 @@ export default function Header() {
                   <Link
                     to="user/login"
                     className={getLocation == "/user/login" ? "active" : ""}
-                    style={{'background-color': '#27292a',
+                    style={{'backgroundColor': '#27292a',
                       'padding': '8px 10px 8px 20px',
-                      'border-radius': '23px'}}
+                      'borderRadius': '23px'}}
                   >
                     Login
                     <img src="assets/images/profile-header.jpg" alt="" />
@@ -90,7 +88,7 @@ export default function Header() {
                   </Link>
                 </li>}
               </ul>
-              <a className="menu-trigger">
+              <a className="menu-trigger" onClick={changeMenuState} hidden = {false}>
                 <span>Menu</span>
               </a>
             </nav>

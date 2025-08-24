@@ -1,5 +1,5 @@
 .background-header {
-    background-color: #fff !important;
+    /* background-color: #fff !important; */
     height: 70px!important;
     position: fixed!important;
     top: 0!important;
@@ -75,7 +75,7 @@
   }
   
   .header-area .main-nav .logo img {
-    width: 100px;
+    width: 89px;
   }
   
   .background-header .main-nav .logo img {
@@ -297,7 +297,7 @@
       top: 0;
     }
     .header-area .main-nav {
-      background-color: transparent;
+      /* background-color: black; */
       border-radius: 0px;
     }
     .header-area .main-nav .nav {
@@ -350,7 +350,7 @@
     .header-area .main-nav .nav {
       float: none;
       width: 100%;
-      display: none;
+      /* display: none; */
       -webkit-transition: all 0s ease 0s;
       -moz-transition: all 0s ease 0s;
       -o-transition: all 0s ease 0s;

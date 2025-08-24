@@ -7,9 +7,15 @@ const buildOptions = (data) => {
           'content-type': 'application/json'
       };
   }
-
+  
   const auth = localStorage.getItem('auth');
-  const accessToken = JSON.parse(auth).accessToken
+  
+
+  if(auth){
+    const accessToken = JSON.parse(auth).accessToken
+
+  
+  
 
   if (accessToken) {
       options.headers = {
@@ -17,6 +23,7 @@ const buildOptions = (data) => {
           'X-Authorization': accessToken
       };
   }
+    }
 
   return options;
 };

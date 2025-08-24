@@ -9,6 +9,8 @@ export default function Details(){
 
     const [comments, setComments] = useState([])
     const [book, setBook] = useState({})
+    const [commentText, setCommentText] = useState('')
+    
     const auth = useContext(AuthContext)
     const ownerId = JSON.parse(localStorage.getItem('auth'))
     const navigate = useNavigate()
@@ -27,21 +29,27 @@ export default function Details(){
       })
     },[])
 
+    function getCommentText(text){
+      setCommentText(...commentText, text)
+      console.log(commentText);
+      
+      console.log(text);
+      document.querySelector('.commentInput').value = text
+    }
+
     async function postComment(e){
        e.preventDefault()
        try{
          const commentToPost = document.querySelector('.commentInput').value
+         document.querySelector('.commentInput').value = ''
          const comment = await(PostComment({commentToPost, location}))
          setComments(state => ([...state, comment]))
+         window.location.reload()
+
        } catch (error) {
         alert(error)
        }
-
     }
-
-    // async function deleteBook(){
-    //   console.log(1);
-    // }
 
 return (
 <>
@@ -72,18 +80,20 @@ return (
           <h4 className="zaglavie">
             {book.bookName}
           </h4>
+          <p>
+            {book.description}
+          </p>
         </div>
-        <p>
-          {book.description}
-        </p>
-
 
         {auth.isAuthenticated && ownerId._id != book._ownerId &&
+              <div className='formDiv'>
                 <form onSubmit={postComment}>
-                <textarea type="text" name='comment' required className='commentInput' rows="5" />
-                <button>post comment</button>
-              </form>
+                  <textarea type="text" name='comment' required className='commentInput' rows="5"/>
+                  <button>post comment</button>
+                </form>
+              </div>
         }
+
         { ownerId._id == book._ownerId &&
                <div className='editAndDelete'>
                   <button onClick={() => navigate(`/books/edit/${location}`)}>Edit</button>
@@ -101,11 +111,11 @@ return (
   </div>
 </section>
 
-<section>
+<section style={{margin: '0px'}}>
   <div className='comments'>
     <ul>
       {comments.map((comment) => (
-                    <Comment key={comment._id} commentText={comment.commentToPost}/>
+                    <Comment key={comment._id} commentData={comment} bookOwner={book._ownerId} getCommentText={getCommentText}/>
                   ))}
     </ul>
   </div>

@@ -16,7 +16,7 @@ import AuthGuard from "./components/AuthGuard/AuthGuaard";
 function App() {
   const navigate = useNavigate()
   const [auth, setAuth] = usePersistedState('auth', {});
-
+  const emailRegex = /^[A-Za-z]+@[A-Za-z]+\.[A-Za-z]{2,}$/;
 
   const loginSubmitHandler = async (values) =>{
     try{
@@ -30,12 +30,20 @@ function App() {
 
   const registerSubmitHandler = async (values) => {
     try{
-    const result = await register(values)
+      if(emailRegex.test(values.email)){
 
-    setAuth(result);
-    navigate('/')
+        
+        const result = await register(values)
+        
+        setAuth(result);
+        
+        navigate('/')
+      } else {
+        alert('Please enter a valid mail.')
+      }
     } catch (error) {
-      alert(error.message)
+      console.log(error.message)
+
     }
   }
 
